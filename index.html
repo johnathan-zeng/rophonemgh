@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
+<<head>
   <meta charset="utf-8">
-  <title>MGH RO Phone Tree</title>
+  <title>Massachusetts General Hospital Phone Tree</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: Helvetica, sans-serif; margin: 0; font-size: 14px; }
-    .header { background: #f0f0f0; padding: 10px; font-weight: bold; border-bottom: 1px solid #ccc; }
-    .row { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; cursor: pointer; }
-    .row:hover { background: #f9f9f9; }
-    .name { color: #000; }
-    .number { color: #007AFF; font-weight: bold; }
+    body {
+      font-family: Helvetica, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica; 
+      font-size: 14px;
+      margin:0px;
+      -webkit-user-select: none;
+    }
+    a { color:#0091FF; font-weight: bold; text-decoration:none; font-size: 14px; }
+    div { border: 0px solid red }
+    div.name { width:200px; float:left; color:#000 }
+    div.number { margin-left:auto; margin-right:0px; color:#0091FF; width:120px; text-align:right; font-weight:bold; }
+    div.row { display:block; padding:4px; border-bottom: 1px solid #ddd; }
+    div.header { background-color: #eee; font-weight: bolder; padding-left: 8px; border-bottom: 1px solid #ddd; }
+    div.footer a { font-size: 12px; }
+    div.footer { background-color: #eee; text-align: center; padding:8px; font-size: 17px; }
+    div.footer a { font-size: 12px; }
+    div.row:active { background-color:#ddd; }
+    img.icon { width:14px; }
+    span.jones { color:#4e387e; font-weight: bold; }
+    a.comment { color:#fff; font-size: smaller; background-color:#bbb; border-radius:14px; padding:0 8px 2px 8px; }
+    span.floor { display:inline-block; width:22px; height:22px; color:#fff; background-color:#bbb; border-radius:20px; text-align: center; }
+    input{padding:0px;margin:0px;border:0px;display:inline-block;-webkit-appearance:none;font-size:14px;width:100px;border-radius:0px;color:#0091FF; text-align:right; font-weight:bold;background-color:transparent;}
+    input:invalid{background-color:#fdd;}
   </style>
 </head>
 <body>
