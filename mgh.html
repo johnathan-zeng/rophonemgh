@@ -40,6 +40,32 @@
         --footer-text: #c5cbd3;
       }
     }
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg: #ffffff;
+      --text: #000000;
+      --muted: #666666;
+      --link: #0091ff;
+      --header-bg: #eeeeee;
+      --nav-bg: #f7f7f7;
+      --row-bg: #ffffff;
+      --row-active: #dddddd;
+      --border: #dddddd;
+      --footer-text: #444444;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #111418;
+      --text: #f2f4f7;
+      --muted: #b5bcc5;
+      --link: #6cb8ff;
+      --header-bg: #1b2128;
+      --nav-bg: #171c22;
+      --row-bg: #111418;
+      --row-active: #242b34;
+      --border: #323944;
+      --footer-text: #c5cbd3;
+    }
     body {
       font-family: Helvetica, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: 14px;
@@ -57,8 +83,20 @@
     div.subnote { padding: 8px; color: var(--muted); font-size: 12px; border-bottom: 1px solid var(--border); }
     div.footer { background-color: var(--header-bg); text-align: center; padding: 8px; font-size: 12px; color: var(--footer-text); }
     div.footer a { font-size: 12px; }
-    div.nav { background-color: var(--nav-bg); text-align: center; padding: 10px 8px; border-bottom: 1px solid var(--border); }
+    div.nav { background-color: var(--nav-bg); display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 8px; border-bottom: 1px solid var(--border); }
+    div.nav-links { text-align: center; flex: 1; }
     div.nav a { margin: 0 10px; }
+    button.theme-toggle {
+      border: 1px solid var(--border);
+      background: var(--row-bg);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      white-space: nowrap;
+    }
     div.brand { display: flex; align-items: center; gap: 12px; padding: 12px 8px; border-bottom: 1px solid var(--border); background: var(--row-bg); }
     div.brand img { width: 52px; height: 52px; object-fit: contain; border-radius: 14px; background: #fff; flex: 0 0 auto; }
     div.brand-text { font-size: 20px; font-weight: bold; color: var(--text); }
@@ -73,7 +111,7 @@
 </head>
 <body>
 
-<div class="nav"><a href="index.html">All Phone Trees</a><a href="bwh.html">Go to BWH / DFCI</a></div>
+<div class="nav"><div class="nav-links"><a href="index.html">All Phone Trees</a><a href="bwh.html">Go to BWH / DFCI</a></div><button class="theme-toggle" id="theme-toggle" type="button">Toggle Theme</button></div>
 <div class="brand"><img src="assets/mgh-logo-clean.png" alt="MGH logo"><div class="brand-text">MGH</div></div>
 
 <div class="header">MGB RADIATION ONCOLOGY SITE LOCATOR</div>
@@ -136,6 +174,35 @@
 <div class="footer">Created by Johnathan Zeng. Last updated: <span id="last-updated">2026-04-21</span>. Page hits: <span id="page-hits">...</span></div>
 
 <script>
+  (function() {
+    var root = document.documentElement;
+    var storageKey = 'hospital-phone-tree-theme';
+    var savedTheme = null;
+    try {
+      savedTheme = localStorage.getItem(storageKey);
+    } catch (error) {}
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      root.setAttribute('data-theme', savedTheme);
+    }
+    var toggle = document.getElementById('theme-toggle');
+    function updateLabel() {
+      if (!toggle) return;
+      var activeTheme = root.getAttribute('data-theme') || 'auto';
+      toggle.textContent = activeTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    }
+    if (toggle) {
+      toggle.addEventListener('click', function() {
+        var nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', nextTheme);
+        try {
+          localStorage.setItem(storageKey, nextTheme);
+        } catch (error) {}
+        updateLabel();
+      });
+    }
+    updateLabel();
+  })();
+
   function setText(id, value) {
     var target = document.getElementById(id);
     if (target) target.textContent = value;

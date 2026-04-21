@@ -40,6 +40,32 @@
         --footer-text: #c5cbd3;
       }
     }
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg: #ffffff;
+      --text: #000000;
+      --muted: #666666;
+      --link: #0091ff;
+      --header-bg: #eeeeee;
+      --nav-bg: #f7f7f7;
+      --row-bg: #ffffff;
+      --row-active: #dddddd;
+      --border: #dddddd;
+      --footer-text: #444444;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #111418;
+      --text: #f2f4f7;
+      --muted: #b5bcc5;
+      --link: #6cb8ff;
+      --header-bg: #1b2128;
+      --nav-bg: #171c22;
+      --row-bg: #111418;
+      --row-active: #242b34;
+      --border: #323944;
+      --footer-text: #c5cbd3;
+    }
     body {
       font-family: Helvetica, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: 14px;
@@ -98,12 +124,30 @@
     }
     div.nav {
       background-color: var(--nav-bg);
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
       padding: 10px 8px;
       border-bottom: 1px solid var(--border);
     }
+    div.nav-links {
+      text-align: center;
+      flex: 1;
+    }
     div.nav a {
       margin: 0 10px;
+    }
+    button.theme-toggle {
+      border: 1px solid var(--border);
+      background: var(--row-bg);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      white-space: nowrap;
     }
     div.brand {
       display: flex;
@@ -129,31 +173,44 @@
     div.row:active {
       background-color: var(--row-active);
     }
+    div.row.machine-yellow { background: linear-gradient(90deg, rgba(255, 223, 86, 0.18) 0%, var(--row-bg) 42%); }
+    div.row.machine-blue { background: linear-gradient(90deg, rgba(59, 130, 246, 0.14) 0%, var(--row-bg) 42%); }
+    div.row.machine-red { background: linear-gradient(90deg, rgba(239, 68, 68, 0.12) 0%, var(--row-bg) 42%); }
+    div.row.machine-silver { background: linear-gradient(90deg, rgba(148, 163, 184, 0.14) 0%, var(--row-bg) 42%); }
+    div.row.machine-hdr { background: linear-gradient(90deg, rgba(20, 184, 166, 0.14) 0%, var(--row-bg) 42%); }
+    div.row.machine-orange { background: linear-gradient(90deg, rgba(249, 115, 22, 0.14) 0%, var(--row-bg) 42%); }
+    div.row.machine-aqua { background: linear-gradient(90deg, rgba(20, 184, 166, 0.14) 0%, var(--row-bg) 42%); }
+    div.row.machine-green { background: linear-gradient(90deg, rgba(34, 197, 94, 0.14) 0%, var(--row-bg) 42%); }
+    div.row.machine-pink { background: linear-gradient(90deg, rgba(236, 72, 153, 0.12) 0%, var(--row-bg) 42%); }
+    div.row.machine-purple { background: linear-gradient(90deg, rgba(139, 92, 246, 0.14) 0%, var(--row-bg) 42%); }
   </style>
 </head>
 <body>
 
-<div class="nav"><a href="index.html">All Phone Trees</a><a href="mgh.html">Go to MGH</a></div>
+<div class="nav"><div class="nav-links"><a href="index.html">All Phone Trees</a><a href="mgh.html">Go to MGH</a></div><button class="theme-toggle" id="theme-toggle" type="button">Toggle Theme</button></div>
 <div class="brand"><img src="assets/bwh-logo-clean.png" alt="BWH logo"><div class="brand-text">BWH / DFCI</div></div>
 
 <div class="header">MGB RADIATION ONCOLOGY SITE LOCATOR</div>
 <div class="row" onclick="location.href='https://johnathan-zeng.github.io/romgblocator/'"><div class="name">Open Site Locator</div><div class="number">Launch</div></div>
 
 <div class="header">MACHINES AND SIMS</div>
-<div class="row" onclick="location.href='tel:6177326355'"><div class="name">Yellow Machine</div><div class="number">(617) 732-6355</div></div>
-<div class="row" onclick="location.href='tel:6177325206'"><div class="name">Silver ETHOS</div><div class="number">(617) 732-5206</div></div>
-<div class="row" onclick="location.href='tel:6175256741'"><div class="name">Blue Machine</div><div class="number">(617) 525-6741</div></div>
-<div class="row" onclick="location.href='tel:6175259401'"><div class="name">Red Machine</div><div class="number">(617) 525-9401</div></div>
-<div class="row" onclick="location.href='tel:6177325098'"><div class="name">MRI Aqua</div><div class="number">(617) 732-5098</div></div>
-<div class="row" onclick="location.href='tel:6177326353'"><div class="name">Orange Machine</div><div class="number">(617) 732-6353</div></div>
-<div class="row" onclick="location.href='tel:6175257906'"><div class="name">HDR Machine</div><div class="number">(617) 525-7906</div></div>
-<div class="row" onclick="location.href='tel:6177327032'"><div class="name">TBI</div><div class="number">(617) 732-7032</div></div>
-<div class="row" onclick="location.href='tel:6176323236'"><div class="name">Purple Machine</div><div class="number">(617) 632-3236</div></div>
-<div class="row" onclick="location.href='tel:6175828638'"><div class="name">Pink Machine</div><div class="number">(617) 582-8638</div></div>
-<div class="row" onclick="location.href='tel:6175829108'"><div class="name">Green Machine</div><div class="number">(617) 582-9108</div></div>
-<div class="row" onclick="location.href='tel:6177328660'"><div class="name">CT Sim 1</div><div class="number">(617) 732-8660</div></div>
-<div class="row" onclick="location.href='tel:6175259428'"><div class="name">CT Sim 3</div><div class="number">(617) 525-9428</div></div>
-<div class="row" onclick="location.href='tel:6175258480'"><div class="name">MAPS / MRI Sim</div><div class="number">(617) 525-8480</div></div>
+<div class="header">BWH MACHINES</div>
+<div class="row machine-yellow" onclick="location.href='tel:6177326355'"><div class="name">BWH Yellow</div><div class="number">(617) 732-6355</div></div>
+<div class="row machine-blue" onclick="location.href='tel:6175256741'"><div class="name">BWH Blue</div><div class="number">(617) 525-6741</div></div>
+<div class="row machine-red" onclick="location.href='tel:6175259401'"><div class="name">BWH TX RED</div><div class="number">(617) 525-9401</div></div>
+<div class="row machine-silver" onclick="location.href='tel:6177325206'"><div class="name">BWH Silver ETHOS</div><div class="number">(617) 732-5206</div></div>
+<div class="row machine-hdr" onclick="location.href='tel:6175257906'"><div class="name">BWH HDR</div><div class="number">(617) 525-7906</div></div>
+<div class="row machine-orange" onclick="location.href='tel:6177327032'"><div class="name">BWH Orange</div><div class="number">(617) 732-7032</div></div>
+<div class="row machine-aqua" onclick="location.href='tel:6177325098'"><div class="name">MRI AQUA</div><div class="number">(617) 732-5098</div></div>
+<div class="row" onclick="location.href='tel:6177328660'"><div class="name">CT SIM - 1</div><div class="number">(617) 732-8660</div></div>
+<div class="row" onclick="location.href='tel:6175259428'"><div class="name">CT SIM - 3</div><div class="number">(617) 525-9428</div></div>
+<div class="row" onclick="location.href='tel:6175258480'"><div class="name">MAPS- MRI SIM</div><div class="number">(617) 525-8480</div></div>
+
+<div class="header">DFCI MACHINES</div>
+<div class="row machine-green" onclick="location.href='tel:6175829108'"><div class="name">DFCI Green</div><div class="number">(617) 582-9108</div></div>
+<div class="row machine-pink" onclick="location.href='tel:6175828638'"><div class="name">DFCI Pink</div><div class="number">(617) 582-8638</div></div>
+<div class="row machine-purple" onclick="location.href='tel:6176323236'"><div class="name">DFCI Purple</div><div class="number">(617) 632-3236</div></div>
+
 <div class="row" onclick="location.href='tel:6177328427'"><div class="name">Sim Scheduler</div><div class="number">(617) 732-8427</div></div>
 
 <div class="header">FRONT DESKS / NURSING STATION</div>
@@ -213,6 +270,35 @@
 <div class="footer">Created by Johnathan Zeng. Last updated: <span id="last-updated">2026-04-21</span>. Page hits: <span id="page-hits">...</span></div>
 
 <script>
+  (function() {
+    var root = document.documentElement;
+    var storageKey = 'hospital-phone-tree-theme';
+    var savedTheme = null;
+    try {
+      savedTheme = localStorage.getItem(storageKey);
+    } catch (error) {}
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      root.setAttribute('data-theme', savedTheme);
+    }
+    var toggle = document.getElementById('theme-toggle');
+    function updateLabel() {
+      if (!toggle) return;
+      var activeTheme = root.getAttribute('data-theme') || 'auto';
+      toggle.textContent = activeTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    }
+    if (toggle) {
+      toggle.addEventListener('click', function() {
+        var nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', nextTheme);
+        try {
+          localStorage.setItem(storageKey, nextTheme);
+        } catch (error) {}
+        updateLabel();
+      });
+    }
+    updateLabel();
+  })();
+
   function setText(id, value) {
     var target = document.getElementById(id);
     if (target) target.textContent = value;
