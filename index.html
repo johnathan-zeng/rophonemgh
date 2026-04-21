@@ -5,6 +5,10 @@
   <title>Hospital Phone Trees</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="MGB RO Trees">
+  <link rel="apple-touch-icon" href="assets/index-icon.png">
+  <link rel="icon" type="image/png" href="assets/index-icon.png">
   <style>
     :root {
       color-scheme: light dark;
@@ -41,6 +45,26 @@
     h1 {
       margin: 0 0 8px;
       font-size: 24px;
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .hero img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      border-radius: 14px;
+      background: #fff;
+      flex: 0 0 auto;
+    }
+    .hero-copy {
+      min-width: 0;
+    }
+    .hero-copy h1 {
+      margin: 0 0 4px;
     }
     p {
       margin: 0 0 20px;
@@ -81,7 +105,12 @@
 </head>
 <body>
   <div class="wrap">
-    <h1>Hospital Phone Trees</h1>
+    <div class="hero">
+      <img src="assets/mgb-logo.png" alt="MGB logo">
+      <div class="hero-copy">
+        <h1>Hospital Phone Trees</h1>
+      </div>
+    </div>
     <p>Open the phone tree you want below.</p>
     <a class="card" href="mgh.html">
       <div class="title">Massachusetts General Hospital</div>

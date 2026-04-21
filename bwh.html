@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
   <meta name="color-scheme" content="light dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="BWH RO">
+  <link rel="apple-touch-icon" href="assets/bwh-icon.png">
+  <link rel="icon" type="image/png" href="assets/bwh-icon.png">
   <style>
     :root {
       color-scheme: light dark;
@@ -99,6 +103,27 @@
     div.nav a {
       margin: 0 10px;
     }
+    div.brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 8px;
+      border-bottom: 1px solid var(--border);
+      background: var(--row-bg);
+    }
+    div.brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 14px;
+      background: #fff;
+      flex: 0 0 auto;
+    }
+    div.brand-text {
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--text);
+    }
     div.row:active {
       background-color: var(--row-active);
     }
@@ -107,6 +132,7 @@
 <body>
 
 <div class="nav"><a href="index.html">All Phone Trees</a><a href="mgh.html">Go to MGH</a></div>
+<div class="brand"><img src="assets/bwh-logo.jpeg" alt="BWH logo"><div class="brand-text">Brigham and Women's Hospital / DFCI</div></div>
 
 <div class="header">MGB RADIATION ONCOLOGY SITE LOCATOR</div>
 <div class="row" onclick="location.href='https://johnathan-zeng.github.io/romgblocator/'"><div class="name">Open Site Locator</div><div class="number">Launch</div></div>
