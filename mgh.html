@@ -133,9 +133,14 @@
 <div class="row" onclick="location.href='tel:4134822900'"><div class="name">Cooley-Dickinson</div><div class="number">(413) 482-2900</div></div>
 <div class="row" onclick="location.href='tel:6035807229'"><div class="name">Exeter Hospital</div><div class="number">(603) 580-7229</div></div>
 
-<div class="footer">Created by Johnathan Zeng. Last updated: <span id="last-updated">2026-04-21</span></div>
+<div class="footer">Created by Johnathan Zeng. Last updated: <span id="last-updated">2026-04-21</span>. Page hits: <span id="page-hits">...</span></div>
 
 <script>
+  function setText(id, value) {
+    var target = document.getElementById(id);
+    if (target) target.textContent = value;
+  }
+
   fetch('assets/last-updated.json')
     .then(function(response) {
       if (!response.ok) throw new Error('Failed to load last updated date');
@@ -143,10 +148,22 @@
     })
     .then(function(data) {
       if (!data || !data.last_updated) return;
-      var target = document.getElementById('last-updated');
-      if (target) target.textContent = data.last_updated;
+      setText('last-updated', data.last_updated);
     })
     .catch(function() {});
+
+  fetch('https://api.countapi.xyz/hit/johnathan-zeng.github.io/rophonemgh-mgh')
+    .then(function(response) {
+      if (!response.ok) throw new Error('Failed to load page hits');
+      return response.json();
+    })
+    .then(function(data) {
+      if (!data || typeof data.value !== 'number') return;
+      setText('page-hits', String(data.value));
+    })
+    .catch(function() {
+      setText('page-hits', '--');
+    });
 </script>
 
 </body>
