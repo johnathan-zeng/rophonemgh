@@ -210,7 +210,21 @@
 <div class="row" onclick="location.href='tel:5084883800'"><div class="name">Milford</div><div class="number">(508) 488-3800</div></div>
 <div class="row" onclick="location.href='tel:7816244700'"><div class="name">South Shore</div><div class="number">(781) 624-4700</div></div>
 
-<div class="footer">Source: <a href="https://rophonebwh.github.io/">rophonebwh.github.io</a> plus the local department phone list PDF.</div>
+<div class="footer">Created by Johnathan Zeng. Last updated: <span id="last-updated">2026-04-21</span></div>
+
+<script>
+  fetch('assets/last-updated.json')
+    .then(function(response) {
+      if (!response.ok) throw new Error('Failed to load last updated date');
+      return response.json();
+    })
+    .then(function(data) {
+      if (!data || !data.last_updated) return;
+      var target = document.getElementById('last-updated');
+      if (target) target.textContent = data.last_updated;
+    })
+    .catch(function() {});
+</script>
 
 </body>
 </html>

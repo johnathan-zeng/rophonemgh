@@ -74,7 +74,7 @@
 <body>
 
 <div class="nav"><a href="index.html">All Phone Trees</a><a href="bwh.html">Go to BWH / DFCI</a></div>
-<div class="brand"><img src="assets/mgh-logo-clean.png" alt="MGH logo"><div class="brand-text">Massachusetts General Hospital</div></div>
+<div class="brand"><img src="assets/mgh-logo-clean.png" alt="MGH logo"><div class="brand-text">MGH</div></div>
 
 <div class="header">MGB RADIATION ONCOLOGY SITE LOCATOR</div>
 <div class="row" onclick="location.href='https://johnathan-zeng.github.io/romgblocator/'"><div class="name">Open Site Locator</div><div class="number">Launch</div></div>
@@ -133,7 +133,21 @@
 <div class="row" onclick="location.href='tel:4134822900'"><div class="name">Cooley-Dickinson</div><div class="number">(413) 482-2900</div></div>
 <div class="row" onclick="location.href='tel:6035807229'"><div class="name">Exeter Hospital</div><div class="number">(603) 580-7229</div></div>
 
-<div class="footer">For any questions, please email <a href="mailto:zeng.johnathan@gmail.com">zeng.johnathan@gmail.com</a></div>
+<div class="footer">Created by Johnathan Zeng. Last updated: <span id="last-updated">2026-04-21</span></div>
+
+<script>
+  fetch('assets/last-updated.json')
+    .then(function(response) {
+      if (!response.ok) throw new Error('Failed to load last updated date');
+      return response.json();
+    })
+    .then(function(data) {
+      if (!data || !data.last_updated) return;
+      var target = document.getElementById('last-updated');
+      if (target) target.textContent = data.last_updated;
+    })
+    .catch(function() {});
+</script>
 
 </body>
 </html>

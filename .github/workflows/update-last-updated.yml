@@ -1,0 +1,44 @@
+name: Update Last Updated
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - assets/last-updated.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-last-updated:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Write last updated file
+        env:
+          EVENT_TIMESTAMP: ${{ github.event.head_commit.timestamp }}
+        run: |
+          if [ -n "$EVENT_TIMESTAMP" ]; then
+            LAST_UPDATED="${EVENT_TIMESTAMP%%T*}"
+          else
+            LAST_UPDATED="$(date -u +%F)"
+          fi
+          printf '{\n  "last_updated": "%s"\n}\n' "$LAST_UPDATED" > assets/last-updated.json
+
+      - name: Commit updated file
+        run: |
+          if git diff --quiet -- assets/last-updated.json; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/last-updated.json
+          git commit -m "Update last updated date"
+          git push
