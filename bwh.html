@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Brigham and Women's Hospital Phone Tree</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="color-scheme" content="light dark">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff;
+      --text: #000000;
+      --muted: #666666;
+      --link: #0091ff;
+      --header-bg: #eeeeee;
+      --nav-bg: #f7f7f7;
+      --row-bg: #ffffff;
+      --row-active: #dddddd;
+      --border: #dddddd;
+      --footer-text: #444444;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111418;
+        --text: #f2f4f7;
+        --muted: #b5bcc5;
+        --link: #6cb8ff;
+        --header-bg: #1b2128;
+        --nav-bg: #171c22;
+        --row-bg: #111418;
+        --row-active: #242b34;
+        --border: #323944;
+        --footer-text: #c5cbd3;
+      }
+    }
+    body {
+      font-family: Helvetica, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      margin: 0;
+      -webkit-user-select: none;
+      background: var(--bg);
+      color: var(--text);
+    }
+    a {
+      color: var(--link);
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    div {
+      border: 0 solid red;
+    }
+    div.name {
+      width: 220px;
+      float: left;
+      color: var(--text);
+    }
+    div.number {
+      margin-left: auto;
+      margin-right: 0;
+      color: var(--link);
+      width: 150px;
+      text-align: right;
+      font-weight: bold;
+    }
+    div.row {
+      display: block;
+      padding: 6px 8px;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      background: var(--row-bg);
+    }
+    div.header {
+      background-color: var(--header-bg);
+      font-weight: bolder;
+      padding: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    div.subnote {
+      padding: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    div.footer {
+      background-color: var(--header-bg);
+      text-align: center;
+      padding: 8px;
+      font-size: 12px;
+      color: var(--footer-text);
+    }
+    div.nav {
+      background-color: var(--nav-bg);
+      text-align: center;
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    div.nav a {
+      margin: 0 10px;
+    }
+    div.row:active {
+      background-color: var(--row-active);
+    }
+  </style>
+</head>
+<body>
+
+<div class="nav"><a href="index.html">All Phone Trees</a><a href="mgh.html">Go to MGH</a></div>
+
+<div class="header">MGB RADIATION ONCOLOGY SITE LOCATOR</div>
+<div class="row" onclick="location.href='https://johnathan-zeng.github.io/romgblocator/'"><div class="name">Open Site Locator</div><div class="number">Launch</div></div>
+
+<div class="header">BWH / DFCI</div>
+<div class="subnote">Built from the BWH phone tree site and updated with the department phone list PDF where a newer number was available.</div>
+<div class="row" onclick="location.href='tel:6177325500'"><div class="name">BWH Main Line</div><div class="number">(617) 732-5500</div></div>
+<div class="row" onclick="location.href='tel:6176323000'"><div class="name">DFCI Main Line</div><div class="number">(617) 632-3000</div></div>
+<div class="row" onclick="location.href='tel:6177325636'"><div class="name">BWH Emergency Dept</div><div class="number">(617) 732-5636</div></div>
+<div class="row" onclick="location.href='tel:6177326922'"><div class="name">BWH Outpatient Pharmacy</div><div class="number">(617) 732-6922</div></div>
+<div class="row" onclick="location.href='tel:6177326555'"><div class="name">Security Emergency</div><div class="number">(617) 732-6555</div></div>
+<div class="row" onclick="location.href='tel:6177326565'"><div class="name">Security Non-Emergency</div><div class="number">(617) 732-6565</div></div>
+<div class="row" onclick="location.href='tel:6177325927'"><div class="name">IT Help Desk</div><div class="number">(617) 732-5927</div></div>
+<div class="row" onclick="location.href='tel:6177326639'"><div class="name">Interpreter Services</div><div class="number">(617) 732-6639</div></div>
+<div class="row" onclick="location.href='tel:8002641552'"><div class="name">Pacific Interpreter</div><div class="number">(800) 264-1552</div></div>
+<div class="row" onclick="location.href='tel:6177327117'"><div class="name">Transport</div><div class="number">(617) 732-7117</div></div>
+
+<div class="header">Radiation Oncology Department</div>
+<div class="row" onclick="location.href='tel:6172780330'"><div class="name">BWH Front Desk</div><div class="number">(617) 278-0330</div></div>
+<div class="row" onclick="location.href='tel:6176323591'"><div class="name">DFCI Front Desk</div><div class="number">(617) 632-3591</div></div>
+<div class="row" onclick="location.href='tel:6176323592'"><div class="name">DFCI Front Desk 2</div><div class="number">(617) 632-3592</div></div>
+<div class="row" onclick="location.href='tel:6177326231'"><div class="name">BWH Nursing / MA Station</div><div class="number">(617) 732-6231</div></div>
+<div class="row" onclick="location.href='tel:6175259411'"><div class="name">BWH Treatment Desk</div><div class="number">(617) 525-9411</div></div>
+<div class="row" onclick="location.href='tel:6175257982'"><div class="name">BWH Recovery Room</div><div class="number">(617) 525-7982</div></div>
+<div class="row" onclick="location.href='tel:6175253256'"><div class="name">SPRO Room</div><div class="number">(617) 525-3256</div></div>
+<div class="row" onclick="location.href='tel:6173942669'"><div class="name">Brachy</div><div class="number">(617) 394-2669</div></div>
+<div class="row" onclick="location.href='tel:6173942668'"><div class="name">BWH Rad</div><div class="number">(617) 394-2668</div></div>
+<div class="row" onclick="location.href='tel:6173942667'"><div class="name">DFCI Rad</div><div class="number">(617) 394-2667</div></div>
+<div class="row" onclick="location.href='tel:6173942692'"><div class="name">VPSAM</div><div class="number">(617) 394-2692</div></div>
+
+<div class="header">Machines and Sims</div>
+<div class="row" onclick="location.href='tel:6177326355'"><div class="name">Yellow Machine</div><div class="number">(617) 732-6355</div></div>
+<div class="row" onclick="location.href='tel:6177325206'"><div class="name">Silver ETHOS</div><div class="number">(617) 732-5206</div></div>
+<div class="row" onclick="location.href='tel:6175256741'"><div class="name">Blue Machine</div><div class="number">(617) 525-6741</div></div>
+<div class="row" onclick="location.href='tel:6175259401'"><div class="name">Red Machine</div><div class="number">(617) 525-9401</div></div>
+<div class="row" onclick="location.href='tel:6177325098'"><div class="name">MRI Aqua</div><div class="number">(617) 732-5098</div></div>
+<div class="row" onclick="location.href='tel:6177326353'"><div class="name">Orange Machine</div><div class="number">(617) 732-6353</div></div>
+<div class="row" onclick="location.href='tel:6175257906'"><div class="name">HDR Machine</div><div class="number">(617) 525-7906</div></div>
+<div class="row" onclick="location.href='tel:6177327032'"><div class="name">TBI</div><div class="number">(617) 732-7032</div></div>
+<div class="row" onclick="location.href='tel:6176323236'"><div class="name">Purple Machine</div><div class="number">(617) 632-3236</div></div>
+<div class="row" onclick="location.href='tel:6175828638'"><div class="name">Pink Machine</div><div class="number">(617) 582-8638</div></div>
+<div class="row" onclick="location.href='tel:6175829108'"><div class="name">Green Machine</div><div class="number">(617) 582-9108</div></div>
+<div class="row" onclick="location.href='tel:6177328660'"><div class="name">CT Sim 1</div><div class="number">(617) 732-8660</div></div>
+<div class="row" onclick="location.href='tel:6175259428'"><div class="name">CT Sim 3</div><div class="number">(617) 525-9428</div></div>
+<div class="row" onclick="location.href='tel:6175258480'"><div class="name">MAPS / MRI Sim</div><div class="number">(617) 525-8480</div></div>
+<div class="row" onclick="location.href='tel:6177328427'"><div class="name">Sim Scheduler</div><div class="number">(617) 732-8427</div></div>
+
+<div class="header">Reading Rooms</div>
+<div class="row" onclick="location.href='tel:6177328592'"><div class="name">ED</div><div class="number">(617) 732-8592</div></div>
+<div class="row" onclick="location.href='tel:6177327237'"><div class="name">Neuro</div><div class="number">(617) 732-7237</div></div>
+<div class="row" onclick="location.href='tel:6177328476'"><div class="name">Thoracic</div><div class="number">(617) 732-8476</div></div>
+<div class="row" onclick="location.href='tel:6177327239'"><div class="name">Abdominal</div><div class="number">(617) 732-7239</div></div>
+<div class="row" onclick="location.href='tel:6177328539'"><div class="name">Musculoskeletal</div><div class="number">(617) 732-8539</div></div>
+<div class="row" onclick="location.href='tel:6177325118'"><div class="name">Nuclear / PET</div><div class="number">(617) 732-5118</div></div>
+
+<div class="header">Other Helpful Numbers</div>
+<div class="row" onclick="location.href='tel:6177326720'"><div class="name">Engineering</div><div class="number">(617) 732-6720</div></div>
+<div class="row" onclick="location.href='tel:6177327180'"><div class="name">BWH Film Library</div><div class="number">(617) 732-7180</div></div>
+<div class="row" onclick="location.href='tel:6177327199'"><div class="name">Housekeeping</div><div class="number">(617) 732-7199</div></div>
+<div class="row" onclick="location.href='tel:6177325777'"><div class="name">International Office</div><div class="number">(617) 732-5777</div></div>
+<div class="row" onclick="location.href='tel:6176325722'"><div class="name">IS LROC</div><div class="number">(617) 632-5722</div></div>
+<div class="row" onclick="location.href='tel:6175256582'"><div class="name">L2 Kitchen</div><div class="number">(617) 525-6582</div></div>
+<div class="row" onclick="location.href='tel:6177327510'"><div class="name">Pathology Lab</div><div class="number">(617) 732-7510</div></div>
+<div class="row" onclick="location.href='tel:6177326636'"><div class="name">Patient Family Relations</div><div class="number">(617) 732-6636</div></div>
+<div class="row" onclick="location.href='tel:6177326248'"><div class="name">Radiology Scheduling</div><div class="number">(617) 732-6248</div></div>
+<div class="row" onclick="location.href='tel:8664894056'"><div class="name">Registration</div><div class="number">(866) 489-4056</div></div>
+<div class="row" onclick="location.href='tel:6177326469'"><div class="name">Social Work BWH</div><div class="number">(617) 732-6469</div></div>
+<div class="row" onclick="location.href='tel:6175825255'"><div class="name">MGB Medical Records</div><div class="number">(617) 582-5255</div></div>
+<div class="row" onclick="location.href='tel:6177324939'"><div class="name">Med Records BWH</div><div class="number">(617) 732-4939</div></div>
+<div class="row" onclick="location.href='tel:6176323270'"><div class="name">Jimmy Fund Clinic</div><div class="number">(617) 632-3270</div></div>
+<div class="row" onclick="location.href='tel:6176323417'"><div class="name">Pt Family Relations DFCI</div><div class="number">(617) 632-3417</div></div>
+<div class="row" onclick="location.href='tel:6176322955'"><div class="name">Medical Records DFCI</div><div class="number">(617) 632-2955</div></div>
+<div class="row" onclick="location.href='tel:8573073700'"><div class="name">Mansfield</div><div class="number">(857) 307-3700</div></div>
+<div class="row" onclick="location.href='tel:5084883800'"><div class="name">Milford</div><div class="number">(508) 488-3800</div></div>
+<div class="row" onclick="location.href='tel:7816244700'"><div class="name">South Shore</div><div class="number">(781) 624-4700</div></div>
+
+<div class="footer">Source: <a href="https://rophonebwh.github.io/">rophonebwh.github.io</a> plus the local department phone list PDF.</div>
+
+</body>
+</html>
