@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Hospital Phone Trees</title>
+  <title>MGB Radiation Oncology Tools</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="MGB RO Trees">
+  <meta name="apple-mobile-web-app-title" content="MGB RO Tools">
   <link rel="apple-touch-icon" href="assets/index-icon.png">
   <link rel="icon" type="image/png" href="assets/index-icon.png">
   <link rel="icon" type="image/png" sizes="512x512" href="assets/index-icon.png">
@@ -14,93 +14,179 @@
   <style>
     :root {
       color-scheme: light dark;
-      --bg: #ffffff;
-      --text: #111111;
-      --muted: #555555;
-      --card-bg: #ffffff;
-      --card-border: #dddddd;
-      --card-active: #f3f3f3;
-      --link: #0091ff;
+      --bg: #f3f6fb;
+      --text: #101828;
+      --muted: #546071;
+      --link: #0a84ff;
+      --hero-bg: linear-gradient(135deg, #f8fbff 0%, #e9f1ff 100%);
+      --panel-bg: rgba(255, 255, 255, 0.9);
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-border: rgba(16, 24, 40, 0.12);
+      --card-shadow: 0 18px 40px rgba(16, 24, 40, 0.08);
+      --card-active: #eef4ff;
+      --section-chip: rgba(10, 132, 255, 0.09);
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #111418;
-        --text: #f2f4f7;
-        --muted: #b5bcc5;
-        --card-bg: #1a1f26;
-        --card-border: #323944;
-        --card-active: #242b34;
-        --link: #6cb8ff;
+        --bg: #0f141b;
+        --text: #eef2f7;
+        --muted: #a7b1bc;
+        --link: #7ec0ff;
+        --hero-bg: linear-gradient(135deg, #16202c 0%, #0f141b 100%);
+        --panel-bg: rgba(22, 28, 36, 0.92);
+        --card-bg: rgba(18, 24, 32, 0.94);
+        --card-border: rgba(154, 169, 187, 0.18);
+        --card-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+        --card-active: #1d2938;
+        --section-chip: rgba(126, 192, 255, 0.12);
       }
     }
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: Helvetica, Arial, sans-serif;
       margin: 0;
-      background: var(--bg);
+      font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(10, 132, 255, 0.10), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.08), transparent 28%),
+        var(--bg);
       color: var(--text);
     }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
     .wrap {
-      max-width: 720px;
+      max-width: 980px;
       margin: 0 auto;
-      padding: 24px 16px;
+      padding: 28px 16px 40px;
+    }
+    .hero {
+      background: var(--hero-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      box-shadow: var(--card-shadow);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    .hero img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.92);
+      padding: 6px;
+    }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--section-chip);
+      color: var(--link);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
     h1 {
       margin: 0 0 8px;
-      font-size: 24px;
+      font-size: 30px;
+      line-height: 1.1;
     }
-    .hero {
+    .hero p {
+      margin: 0;
+      max-width: 62ch;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 15px;
+    }
+    .section {
+      margin-top: 24px;
+    }
+    .section-header {
       display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 10px;
-    }
-    .hero img {
-      width: 56px;
-      height: 56px;
-      object-fit: contain;
-      border-radius: 14px;
-      flex: 0 0 auto;
-    }
-    .hero-copy {
-      min-width: 0;
-    }
-    .hero-copy h1 {
-      margin: 0 0 4px;
-    }
-    p {
-      margin: 0 0 20px;
-      color: var(--muted);
-      line-height: 1.4;
-    }
-    a.card {
-      display: block;
-      padding: 16px;
-      margin-bottom: 12px;
-      border: 1px solid var(--card-border);
-      border-radius: 10px;
-      text-decoration: none;
-      color: inherit;
-      background: var(--card-bg);
-    }
-    a.card:active {
-      background: var(--card-active);
-    }
-    .title {
-      font-weight: bold;
-      color: var(--link);
-      margin-bottom: 4px;
-    }
-    .desc {
-      color: var(--muted);
-      font-size: 14px;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 12px;
     }
     .section-title {
-      margin: 24px 0 10px;
-      font-size: 14px;
+      margin: 0;
+      font-size: 18px;
       font-weight: bold;
+    }
+    .section-desc {
+      margin: 0;
       color: var(--muted);
+      font-size: 13px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      display: block;
+      padding: 18px;
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      background: var(--card-bg);
+      box-shadow: var(--card-shadow);
+      transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease;
+    }
+    .card:hover,
+    .card:focus-visible {
+      transform: translateY(-2px);
+      background: var(--card-active);
+      border-color: rgba(10, 132, 255, 0.35);
+      outline: none;
+    }
+    .card-kicker {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .card-title {
+      color: var(--link);
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .card-desc {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .footer {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 640px) {
+      .wrap {
+        padding: 16px 12px 28px;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 26px;
+      }
+      .section-header {
+        display: block;
+      }
+      .section-desc {
+        margin-top: 4px;
+      }
     }
   </style>
 </head>
@@ -108,28 +194,66 @@
   <div class="wrap">
     <div class="hero">
       <img src="assets/mgb-logo-clean.png" alt="MGB logo">
-      <div class="hero-copy">
-        <h1>Hospital Phone Trees</h1>
+      <div>
+        <div class="eyebrow">Mass General Brigham Radiation Oncology</div>
+        <h1>Clinical Phone Trees And Workflow Tools</h1>
+        <p>Central entry point for department phone trees and related radiation oncology tools, including site lookup, fraction scheduling, and on-call emergency references.</p>
       </div>
     </div>
-    <p>Open the phone tree you want below.</p>
-    <a class="card" href="mgh.html">
-      <div class="title">Massachusetts General Hospital</div>
-      <div class="desc">Original MGH phone tree.</div>
-    </a>
-    <a class="card" href="bwh.html">
-      <div class="title">Brigham and Women's Hospital / DFCI</div>
-      <div class="desc">BWH tree based on the BWH webpage with updated numbers from the PDF.</div>
-    </a>
-    <div class="section-title">MGB Radiation Oncology Site Locator</div>
-    <a class="card" href="https://johnathan-zeng.github.io/romgblocator/">
-      <div class="title">Open Site Locator</div>
-      <div class="desc">Launch the MGB Radiation Oncology Site Locator.</div>
-    </a>
-    <a class="card" href="https://johnathan-zeng.github.io/romgblocator/fractions.html">
-      <div class="title">Open Fraction Calculator</div>
-      <div class="desc">Calculate fractions, start dates, end dates, alternating schedules, and excluded treatment dates.</div>
-    </a>
+
+    <section class="section" aria-labelledby="phone-trees-heading">
+      <div class="section-header">
+        <h2 class="section-title" id="phone-trees-heading">Phone Trees</h2>
+        <p class="section-desc">Direct department contact lists for the main clinical sites.</p>
+      </div>
+      <div class="grid">
+        <a class="card" href="mgh.html">
+          <div class="card-kicker">Phone Tree</div>
+          <div class="card-title">Massachusetts General Hospital</div>
+          <div class="card-desc">Open the MGH radiation oncology phone tree.</div>
+        </a>
+        <a class="card" href="bwh.html">
+          <div class="card-kicker">Phone Tree</div>
+          <div class="card-title">Brigham and Women's Hospital / DFCI</div>
+          <div class="card-desc">Open the BWH and DFCI radiation oncology contact tree.</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="planning-tools-heading">
+      <div class="section-header">
+        <h2 class="section-title" id="planning-tools-heading">Planning And Scheduling Tools</h2>
+        <p class="section-desc">Utilities for site selection and treatment course date calculations.</p>
+      </div>
+      <div class="grid">
+        <a class="card" href="https://johnathan-zeng.github.io/romgblocator/">
+          <div class="card-kicker">Web App</div>
+          <div class="card-title">RO Site Locator</div>
+          <div class="card-desc">Find the nearest MGB-affiliated radiation oncology sites for a given address.</div>
+        </a>
+        <a class="card" href="https://johnathan-zeng.github.io/romgblocator/fractions.html">
+          <div class="card-kicker">Web App</div>
+          <div class="card-title">Fraction Calculator</div>
+          <div class="card-desc">Calculate start dates, end dates, fraction counts, alternating schedules, excluded dates, and treatment calendars.</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="on-call-heading">
+      <div class="section-header">
+        <h2 class="section-title" id="on-call-heading">On-Call And Emergencies</h2>
+        <p class="section-desc">Decision-support tools for emergency response and call workflows.</p>
+      </div>
+      <div class="grid">
+        <a class="card" href="https://johnathan-zeng.github.io/romgboncall/">
+          <div class="card-kicker">Web App</div>
+          <div class="card-title">RO Emergencies On Call</div>
+          <div class="card-desc">Interactive radiation oncology on-call emergency algorithms and escalation references.</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="footer">Created by Johnathan Zeng.</div>
   </div>
 </body>
 </html>
