@@ -5,7 +5,7 @@ This repo contains lightweight mobile-friendly phone tree pages for:
 - Hospital Phone Trees: [https://johnathan-zeng.github.io/rophonemgh/](https://johnathan-zeng.github.io/rophonemgh/)
 - Massachusetts General Hospital: [https://johnathan-zeng.github.io/rophonemgh/mgh.html](https://johnathan-zeng.github.io/rophonemgh/mgh.html)
 - Brigham and Women's Hospital / DFCI: [https://johnathan-zeng.github.io/rophonemgh/bwh.html](https://johnathan-zeng.github.io/rophonemgh/bwh.html)
-- MGB Radiation Oncology Site Locator: [https://johnathan-zeng.github.io/romgblocator/](https://johnathan-zeng.github.io/romgblocator/)
+- MGB Radiation Oncology Site Locator: [https://romgboncall.vercel.app/](https://romgboncall.vercel.app/)
 
 The landing page is [https://johnathan-zeng.github.io/rophonemgh/](https://johnathan-zeng.github.io/rophonemgh/), which links to both.
 
